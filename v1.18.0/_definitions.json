@@ -1531,6 +1531,19 @@
         }
       ]
     },
+    "io.k8s.api.core.v1.PersistentVolumeClaimTemplateSpec": {
+      "description": "A StatefulSetSpec is the specification of a StatefulSet.",
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+          "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+        },
+        "spec": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.PersistentVolumeClaimSpec",
+          "description": "Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims"
+        }
+      }
+    },
     "io.k8s.api.apps.v1.StatefulSetSpec": {
       "description": "A StatefulSetSpec is the specification of a StatefulSet.",
       "properties": {
@@ -1567,7 +1580,7 @@
         "volumeClaimTemplates": {
           "description": "volumeClaimTemplates is a list of claims that pods are allowed to reference. The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.",
           "items": {
-            "$ref": "#/definitions/io.k8s.api.core.v1.PersistentVolumeClaim"
+            "$ref": "#/definitions/io.k8s.api.core.v1.PersistentVolumeClaimTemplateSpec"
           },
           "type": "array"
         }
